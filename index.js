@@ -1,7 +1,7 @@
 var content = null;
 var url = null;
 
-function sample() {
+function on_file_upload() {
   var file = document.getElementById("file").files[0];
   var reader = new FileReader();
   reader.readAsText(file, "UTF-8");
@@ -11,7 +11,7 @@ function sample() {
     url = window.URL.createObjectURL(blob);
     var a = document.createElement("a");
     a.href = url;
-    fetch("/file_test.py").then((response) => {
+    fetch("/generate_file_output.py").then((response) => {
       return response.text().then((text) => {
         pyodide.runPythonAsync(text);
       });
@@ -20,14 +20,15 @@ function sample() {
 }
 
 async function main() {
-  pyodide = await loadPyodide({ indexURL: "/lib/pyodide" });
+  pyodide = await loadPyodide({ indexURL: "/vendor/pyodide" });
 
   pyodide.loadPackage(["micropip"]).then(() => {
-    fetch("/hello.py").then((response) => {
+    fetch("/load_pyodide.py").then((response) => {
       return response.text().then((text) => {
         pyodide.runPythonAsync(text);
       });
     });
   });
 }
+
 main();

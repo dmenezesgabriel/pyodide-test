@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyodide test</title>
+    <script src="/vendor/pyodide/pyodide.js"></script>
+    <script src="/index.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pyodide test</title>
-  <script src="/lib/pyodide/pyodide.js"></script>
-  <script src="/index.js"></script>
-
-
-</head>
-
-<body>
-  <div id="status">Initializing Python...</div>
-  <input type="file" id="file" onchange="sample();">
-  <div id="output"></div>
-</body>
-
+  <body>
+    <div id="status">Initializing Python...</div>
+    <input type="file" id="file" onchange="on_file_upload();" />
+    <div id="output"></div>
+  </body>
 </html>

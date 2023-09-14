@@ -3,7 +3,7 @@ import sys
 import js
 import micropip
 
-await micropip.install("tableaudocumentapi")
+# await micropip.install("tableaudocumentapi")
 
 js.document.getElementById("status").innerHTML = ""
 
